@@ -1,7 +1,7 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/main/main"
-
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -20,6 +20,5 @@
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
-  "expo": {
-  }
+  "expo": {}
 }

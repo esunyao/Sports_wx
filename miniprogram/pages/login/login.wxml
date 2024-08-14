@@ -1,0 +1,51 @@
+<navigation-bar title="健运通" back="{{false}}" color="black" background="#FFF"/>
+<view class="container container_">
+  <image src="{{titleImagePath}}" mode="aspectFit" style="width: 100%; height: 32%;"/>
+
+  <view class="user_information">
+    <view class="container_account">
+      <text class="text text_login">用户名</text>
+      <input class="account_input" type="text" auto-focus id="account-input" bindinput="handleAccountInput" placeholder="请输入账号" />
+    </view>
+  
+    <view class="container_space container_account">
+      <text class="text text_login">密码</text>
+      <input class="account_input" type="text" password="true" bindinput="handlePasswdInput" id="passwd-input" placeholder="请输入密码" />
+    </view>
+    <button class="container_space" bindtap="handleLogin" form-type="submit">登录</button>
+    <!-- <input class="account_input container_space" type="text" password="true" id="passwd-input" placeholder="请输入密码"/>
+        <button class="container_space" bindtap="handleLogin">登录</button> -->
+
+    
+    </view>
+<!--  <view style="background-color: #E6E6E6; flex: 1;"></view>-->
+<!--  <view style="background-color: #F1F1F1; flex: 1;"></view>-->
+</view>
+
+
+
+<!--<scroll-view class="scrollarea" scroll-y type="list">-->
+<!--    <view class="container">-->
+<!--        <view class="userinfo">-->
+<!--            <input type="text" id="account-input" class="account-input" placeholder="请输入账号" bind:change="onInputChange" />-->
+
+<!--&lt;!&ndash;            <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">&ndash;&gt;-->
+<!--&lt;!&ndash;                <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>&ndash;&gt;-->
+<!--&lt;!&ndash;                </button>&ndash;&gt;-->
+<!--&lt;!&ndash;                <view class="nickname-wrapper">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <text class="nickname-label">昵称</text>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />&ndash;&gt;-->
+<!--&lt;!&ndash;                </view>&ndash;&gt;-->
+<!--&lt;!&ndash;            </block>&ndash;&gt;-->
+<!--&lt;!&ndash;            <block wx:elif="{{!hasUserInfo}}">&ndash;&gt;-->
+<!--&lt;!&ndash;                <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>&ndash;&gt;-->
+<!--&lt;!&ndash;                <view wx:else> 请使用2.10.4及以上版本基础库 </view>&ndash;&gt;-->
+<!--&lt;!&ndash;            </block>&ndash;&gt;-->
+<!--&lt;!&ndash;            <block wx:else>&ndash;&gt;-->
+<!--&lt;!&ndash;                <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>&ndash;&gt;-->
+<!--&lt;!&ndash;                <text class="userinfo-nickname">{{userInfo.nickName}}</text>&ndash;&gt;-->
+<!--&lt;!&ndash;            </block>&ndash;&gt;-->
+<!--        </view>-->
+<!--    </view>-->
+<!--</scroll-view>-->

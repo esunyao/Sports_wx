@@ -97,7 +97,7 @@ interface Require {
     ): Promise<any>
 }
 declare const require: Require
-/** 引入插件。返回插件通过 `main` 暴露的接口。 */
+/** 引入插件。返回插件通过 `login` 暴露的接口。 */
 interface RequirePlugin {
     (
         /** 需要引入的插件的 alias */
@@ -105,7 +105,7 @@ interface RequirePlugin {
         /** 用于异步获取其他分包中的插件的引用结果，详见 [分包异步化]((subpackages/async)) */
         callback?: (pluginExport: any) => void
     ): any
-    /** 以 Promise 形式异步引入插件。返回插件通过 `main` 暴露的接口。 */
+    /** 以 Promise 形式异步引入插件。返回插件通过 `login` 暴露的接口。 */
     async(
         /** 需要引入的插件的 alias */
         module: string

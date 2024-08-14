@@ -13166,7 +13166,7 @@ worker.postMessage({
 const worker = wx.createWorker('workers/request/index.js')
 
 worker.postMessage({
-  msg: 'hello from main'
+  msg: 'hello from login'
 })
 ```
 *
@@ -26877,7 +26877,7 @@ cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
 })
 
-exports.main = async (event, context) => {
+exports.login = async (event, context) => {
   const res = await cloud.cloudPay.unifiedOrder({
     "body" : "小秋TIT店-超市",
     "outTradeNo" : "1217752501201407033233368018",
@@ -27012,7 +27012,7 @@ wx.requestSubscribeDeviceMessage({
 * | 20001   | No template data return, verify the template id exist  | 没有模板数据，一般是模板 ID 不存在 或者和模板类型不对应 导致的 |
 * | 20002   | Templates type must be same                            | 模板消息类型 既有一次性的又有永久的                            |
 * | 20003   | Templates count out of max bounds                      | 模板消息数量超过上限                                           |
-* | 20004   | The main switch is switched off                        | 用户关闭了主开关，无法进行订阅                                 |
+* | 20004   | The login switch is switched off                        | 用户关闭了主开关，无法进行订阅                                 |
 * | 20005   | This mini program was banned from subscribing messages | 小程序被禁封                                                   |
 * | 20013   | Reject DeviceMsg Template                              | 不允许通过该接口订阅设备消息                                      |
 *
