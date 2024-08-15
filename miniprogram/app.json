@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/main/main"
+    "pages/main/main",
+    "pages/profile/profile"
   ],
   "window": {
     "navigationBarTextStyle": "black",
