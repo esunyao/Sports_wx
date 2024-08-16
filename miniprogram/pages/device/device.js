@@ -1,5 +1,7 @@
 Page({
-    onLoad: function () {
+    data: {
+        progressValue: 0,
+    }, onLoad: function () {
         // 显示加载框
         wx.showLoading({
             title: '正在连接蓝牙设备...',
@@ -20,18 +22,61 @@ Page({
         // 监听低功耗蓝牙设备的特征值变化
         wx.onBLECharacteristicValueChange(function (res) {
             console.log('特征值变化', res.characteristicId, res.value);
-
             // ArrayBuffer转16进度字符串示例
             let dataView = new DataView(res.value);
+            console.log("原始数据", dataView)
             let dataHexStr = '';
             for (let i = 0; i < dataView.byteLength; i++) {
-                dataHexStr += ('00' + dataView.getUint8(i).toString(16)).slice(-2);
+                dataHexStr += String.fromCharCode(dataView.getUint8(i));
+                console.log(i, String.fromCharCode(dataView.getUint8(i)));
             }
-            console.log('接收到的数据：' + dataHexStr);
-        });
-    },
+            console.log('接收到的数据（16进制）：' + dataHexStr);
 
-    startBluetoothDevicesDiscovery: function () {
+            // 转换为10进制
+            let decimal = parseInt(dataHexStr, 16);
+            console.log('接收到的数据（10进制）：' + decimal);
+            this.setData({
+                progressValue: decimal
+            });
+        });
+        // 意外断开连接
+        wx.onBLEConnectionStateChange(function (res) {
+            // 该方法回调中可以用于处理连接意外断开等异常情况
+            console.log(`device ${res.deviceId} state has changed, connected: ${res.connected}`);
+            // 关闭蓝牙模块，使其进入未初始化状态
+            if (res.connected === false) {
+                wx.closeBluetoothAdapter({
+                    success: (res) => {
+                        console.log('关闭蓝牙模块成功', res);
+                    }, fail: (err) => {
+                        console.log('关闭蓝牙模块失败', err);
+                    }
+                });
+                wx.showModal({
+                    title: '提示', content: '这是一个模态弹窗', success(res) {
+                        if (res.confirm) {
+                            console.log('用户点击确定')
+                        } else if (res.cancel) {
+                            console.log('用户点击取消')
+                        }
+                    }
+                })
+            }
+        });
+    }, onUnload: function () {
+        // 取消监听低功耗蓝牙设备的特征值变化
+        wx.offBLECharacteristicValueChange();
+
+        // 关闭蓝牙模块，使其进入未初始化状态
+        wx.closeBluetoothAdapter({
+            success: (res) => {
+                console.log('关闭蓝牙模块成功', res);
+            }, fail: (err) => {
+                console.log('关闭蓝牙模块失败', err);
+            }
+        });
+        wx.hideLoading();
+    }, startBluetoothDevicesDiscovery: function () {
         wx.startBluetoothDevicesDiscovery({
             services: [], success: (res) => {
                 console.log('开始搜索附近的蓝牙外围设备', res);
