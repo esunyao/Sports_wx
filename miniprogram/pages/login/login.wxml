@@ -12,7 +12,7 @@
       <text class="text text_login">密码</text>
       <input class="account_input" type="text" password="true" bindinput="handlePasswdInput" id="passwd-input" placeholder="请输入密码" />
     </view>
-    <button class="container_space" bindtap="handleLogin" form-type="submit">登录</button>
+    <button class="container_space" bindtap="handleLogin" form-type="微信开发者工具 skyline模拟器无限重启">登录</button>
     <!-- <input class="account_input container_space" type="text" password="true" id="passwd-input" placeholder="请输入密码"/>
         <button class="container_space" bindtap="handleLogin">登录</button> -->
 

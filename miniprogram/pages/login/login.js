@@ -17,7 +17,7 @@ Component({
     }, lifetimes: {
         created: function () {
             if (wx.getStorageSync('token') === '') {
-                console.log("找不到")
+                console.debug("未找到记录中的token")
             } else {
                 // console.log("找不到")
                 this.setData({

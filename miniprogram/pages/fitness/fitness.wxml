@@ -1,2 +1,42 @@
 <!--pages/fitness/fitness.wxml-->
-<text>pages/fitness/fitness.wxml</text>
+<view class="container">
+    <!-- 顶部标题和头像图标 -->
+    <view class="header">
+        <text class="title">单车</text>
+        <icon type="search" class="user-icon"></icon>
+    </view>
+
+    <!-- 地图容器 -->
+    <view class="map-container">
+        <map class="map" id="myMap" show-location="true" scale="16" latitude="{{latitude}}" longitude="{{longitude}}">
+            <!-- 附近车辆信息 -->
+            <view class="location-info">
+                <text>附近车辆充足</text>
+            </view>
+        </map>
+    </view>
+
+    <!-- 地图下方的功能选项 -->
+    <view class="icon-container">
+        <view class="icon-item">
+            <icon type="search" class="icon"></icon>
+            <text>地图找车</text>
+        </view>
+        <view class="icon-item">
+            <icon type="search" class="icon"></icon>
+            <text>搜停车点</text>
+        </view>
+        <view class="icon-item">
+            <icon type="search" class="icon"></icon>
+            <text>特惠购卡</text>
+        </view>
+        <view class="icon-item">
+            <icon type="search" class="icon"></icon>
+            <text>发现坏车</text>
+        </view>
+        <view class="icon-item">
+            <icon type="search" class="icon"></icon>
+            <text>调研有礼</text>
+        </view>
+    </view>
+</view>

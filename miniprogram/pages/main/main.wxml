@@ -16,9 +16,19 @@
                 show-location
         ></map>
     </view>
-    <view class="code_scan">
-        <button class="code_scan_title" bindtap="handleScanCode">
+
+    <view class="code_scan" style="height: 13%" wx:if="!{{showOverlay}}">
+        <button class="code_scan_title" style="height: 50%; top: 11.5%" bindtap="handleScanCode">
             扫码健身
         </button>
     </view>
+    <view class="code_scan" style="height: 16%" wx:if="{{showOverlay}}">
+        <button class="code_scan_title" style="height: 40%; top: 20%" bindtap="handleScanCode">
+            重新扫码
+        </button>
+        <button class="reset_button"  bindtap="resetScanCode">
+            X
+        </button>
+    </view>
+    <view class="overlay" wx:if="{{showOverlay}}"></view>
 </view>

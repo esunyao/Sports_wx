@@ -1,1 +1,72 @@
 /* pages/fitness/fitness.wxss */
+/* 页面容器 */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* 顶部标题 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* 地图容器 */
+.map-container {
+    position: relative;
+    flex: 1;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+/* 附近车辆信息 */
+.location-info {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* 地图下方的图标功能区 */
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
