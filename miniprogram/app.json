@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/device/device",
     "pages/login/login",
-    "pages/main/main",
-    "pages/fitness/fitness"
+    "pages/fitness/fitness",
+    "pages/main/main"
   ],
   "window": {
     "navigationBarTextStyle": "black",

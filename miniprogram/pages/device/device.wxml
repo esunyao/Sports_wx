@@ -1,5 +1,0 @@
-<navigation-bar title="健运通" back="{{true}}" color="black" background="black"/>
-<view class="container container_">
-<!--    左侧进度条-->
-    <progress class="fitness_progress" max="100" value="{{progressValue}}" />
-</view>

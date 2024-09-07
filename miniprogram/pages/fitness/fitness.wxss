@@ -1,72 +1,106 @@
-/* pages/fitness/fitness.wxss */
-/* 页面容器 */
-.container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-/* 顶部标题 */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.user-icon {
-    width: 20px;
-    height: 20px;
-}
-
-/* 地图容器 */
-.map-container {
+.container_ {
     position: relative;
-    flex: 1;
 }
 
-.map {
+.fitness_progress {
+    position: absolute;
+    right: 3%;
+    transform: rotate(-90deg);
+    width: 181%;
+    height: 3%;
+    background-color: #942323;
+    top: 42%;
+}
+
+.progress-bar {
+    position: absolute;
+    display: flex;
+    right: 3%;
+    transform: rotate(-90deg);
+    box-shadow: -2px 2px 3px grey;
+    width: 181%;
+    height: 3%;
+    top: 42%;
+    background-color: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background-color: #2eadad;
+}
+
+.progress-text {
+    transform: rotate(90deg);
+    font-size: 12px;
+    color: black;
+}
+.shadow_{
+    box-shadow: 2px 2px 3px grey;
+}
+.example-video {
+    /* width: 82%; */
+    position: absolute;
+    height: 22.17%;
+    right: 3%;
+    border-radius: 5%;
+    /* padding: 26%; */
+    top: 2%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.inner-text{
     width: 100%;
     height: 100%;
-}
-
-/* 附近车辆信息 */
-.location-info {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    text-align: center;
-}
-
-/* 地图下方的图标功能区 */
-.icon-container {
     display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    background-color: #fff;
-    border-top: 1px solid #e5e5e5;
-}
-
-.icon-item {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-size: 150%;
+    color: white;
+}
+.reset-l-button{
+    position: absolute;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    top: 26%;
+    left: 14%;
+    background-color: transparent;
+}
+.reset-r-button{
+    position: absolute;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    top: 26%;
+    right: 3%;
+}
+.outer-circle {
+    position: absolute;
+    width: 100%;  /* 外圈的宽度 */
+    height: 100%;  /* 外圈的高度 */
+    border-radius: 50%;  /* 使外圈变为圆形 */
+    display: flex;  /* 使用 Flexbox 布局 */
+    justify-content: center;  /* 水平居中对齐内容 */
+    align-items: center;  /* 垂直居中对齐内容 */
 }
 
-.icon {
-    width: 24px;
-    height: 24px;
-    margin-bottom: 5px;
+.inner-circle {
+    width: 50px;  /* 内圈的宽度 */
+    height: 50px;  /* 内圈的高度 */
+    border-radius: 50%;  /* 使内圈变为圆形 */
+}
+.reset-l-button-text{
+    position: absolute;
+    top: 26.7%;
+    right: 23%;
+    font-size: 109%;
+}
+.reset-r-button-text{
+    position: absolute;
+    top: 30%;
+    right: 19%;
+    font-size: 109%;
 }

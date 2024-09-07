@@ -22,7 +22,7 @@
             扫码健身
         </button>
     </view>
-    <view class="code_scan" style="height: 16%" wx:if="{{showOverlay}}">
+    <view class="code _scan" style="height: 16%" wx:if="{{showOverlay}}">
         <button class="code_scan_title" style="height: 40%; top: 20%" bindtap="handleScanCode">
             重新扫码
         </button>
