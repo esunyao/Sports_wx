@@ -22,5 +22,12 @@
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "expo": {},
-  "json.schemas": []
+  "json.schemas": [],
+    "permission": {
+        "scope.userLocation": {
+        "desc": "你的位置信息将用于小程序位置接口的效果展示",
+        "warn": "你的位置信息将用于小程序位置接口的效果展示",
+        "state": 1
+        }
+    }
 }

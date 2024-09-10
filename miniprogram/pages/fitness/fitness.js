@@ -3,31 +3,24 @@ const imageResourceManager = new ImageResourceManager();
 var constants = require('../../constants/core_constant.js');
 Page({
     data: {
-        progressValue: 20,
-        fitnessValue: 0,
-        shequ01: '',
-        reset_data_l: imageResourceManager.getImagePath("cn.esuny.")
+        progressValue: 20, fitnessValue: 0, shequ01: '', reset_data_l: imageResourceManager.getImagePath("cn.esuny.")
     }, onLoad: function () {
-        // 显示加载框
-        // wx.showLoading({
-        //     title: '正在连接蓝牙设备...',
-        // });
-        console.error("asdfasdf");
+        wx.showLoading({
+            title: '正在连接蓝牙设备...',
+        });
+        // console.error("asdfasdf");
         let that = this;
-        console.log(wx.getStorageSync('token'))
+        // console.log(wx.getStorageSync('token'))
         let ur = constants.API_V1_GETRESOURCE + "/shequ01.gif"
-        console.log(ur)
+        // console.log(ur)
         wx.downloadFile({
             url: ur, // 这里填��你的图片在线链接
-            header:{
-                'content-type': 'application/json',
-                'token': wx.getStorageSync('token')
-            },
-            success: function(res) {
+            header: {
+                'content-type': 'application/json', 'token': wx.getStorageSync('token')
+            }, success: function (res) {
                 if (res.statusCode === 200) {
                     wx.getImageInfo({
-                        src: res.tempFilePath,
-                        success: function(info) {
+                        src: res.tempFilePath, success: function (info) {
                             that.setData({
                                 shequ01: info.path
                             });
@@ -36,16 +29,31 @@ Page({
                 }
             }
         });
-        // 初始化蓝牙适配器
-        wx.openBluetoothAdapter({
-            success: (res) => {
-                console.log('初始化蓝牙适配器成功', res);
-                // 开始扫描蓝牙设备
-                this.startBluetoothDevicesDiscovery();
-            }, fail: (err) => {
-                console.log('初始化蓝牙适配器失败', err);
-                // 初始化失败后关闭加载框
-                wx.hideLoading();
+        wx.getBluetoothAdapterState({
+            success(res) {
+                // 检查蓝牙适配器状态
+                if (res.available) {
+                    // 蓝牙适配器已经初始化，可以重新申请权限
+                    // 调用 openBluetoothAdapter 方法再次申请权限
+                    console.log('蓝牙适配器已经初始化，可以重新申请权限')
+                    wx.openBluetoothAdapter({
+                        success: (res) => {
+                            console.log('初始化蓝牙适配器成功', res);
+                            // 开始扫描蓝牙设备
+                            this.startBluetoothDevicesDiscovery();
+                        }, fail: (err) => {
+                            console.log('初始化蓝牙适配器失败', err);
+                            // 初始化失败后关闭加载框
+                            wx.hideLoading();
+                        }
+                    });
+                } else {
+                    console.log('蓝牙适配器未初始化，无法重新申请权限')
+                    // 蓝牙适配器未初始化，无法重新申请权限
+                }
+            }, fail(err) {
+                // 获取蓝牙适配器状态失败
+                console.log('蓝牙无效')
             }
         });
         // 监听低功耗蓝牙设备的特征值变化
@@ -65,8 +73,7 @@ Page({
             let decimal = parseInt(dataHexStr, 16);
             console.log('接收到的数据（10进制）：' + decimal);
             that.setData({
-                progressValue: decimal,
-                fitnessValue: decimal
+                progressValue: decimal, fitnessValue: decimal
             });
         });
         // 意外断开连接

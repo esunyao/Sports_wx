@@ -15,6 +15,17 @@ Page({
         longitude: '', // 新增的数据项
         showOverlay: false,
     }, onLoad: function (options) {
+        wx.authorize({
+            scope: 'scope.userLocation', success: function (res) {
+                console.log(res);
+            }, fail: function (res) {
+                // fail
+                console.log(res);
+            }, complete: function (res) {
+                // complete
+                console.log(res);
+            }
+        })
         var that = this;
         wx.getLocation({
             type: 'wgs84', success: function (res) {
@@ -38,7 +49,7 @@ Page({
                 let id = url.match(/id=([^&]*)/)[1];
                 if (protocol === 'https' && host === 'sports.erpsu.com.cn' && port === '443' && path === '/sports.erpsu.com.cn:443/api/v1/wx?') {
                     wx.navigateTo({
-                        url: '/pages/device/device?id=' + id
+                        url: '/pages/fitness/fitness?id=' + id
                     });
                 } else {
                     wx.showToast({
