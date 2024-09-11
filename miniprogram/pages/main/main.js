@@ -5,7 +5,7 @@ Page({
             iconPath: '/miniprogram/resource/a.png',
             latitude: 22.561619212937828,
             longitude: 113.86294563308716,
-            width: 50,
+            width: 100,
             height: 50
         }], controls: [{
             id: 1, iconPath: '/miniprogram/resource/a.png', position: {
@@ -29,6 +29,8 @@ Page({
         var that = this;
         wx.getLocation({
             type: 'wgs84', success: function (res) {
+                console.log(res.latitude)
+                console.log(res.longitude)
                 var latitude = res.latitude
                 var longitude = res.longitude
                 that.setData({
@@ -48,7 +50,7 @@ Page({
                 let path = url.match(/[^:](\/.*\?)/)[1];
                 let id = url.match(/id=([^&]*)/)[1];
                 if (protocol === 'https' && host === 'sports.erpsu.com.cn' && port === '443' && path === '/sports.erpsu.com.cn:443/api/v1/wx?') {
-                    wx.navigateTo({
+                    wx.redirectTo({
                         url: '/pages/fitness/fitness?id=' + id
                     });
                 } else {

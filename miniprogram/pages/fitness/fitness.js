@@ -45,15 +45,26 @@ Page({
                             console.log('初始化蓝牙适配器失败', err);
                             // 初始化失败后关闭加载框
                             wx.hideLoading();
+                            wx.showToast({
+                                title: '请检查蓝牙', icon: 'error', duration: 2000
+                            })
                         }
                     });
                 } else {
                     console.log('蓝牙适配器未初始化，无法重新申请权限')
+                    wx.hideLoading();
+                    wx.showToast({
+                        title: '请检查蓝牙', icon: 'error', duration: 2000
+                    })
                     // 蓝牙适配器未初始化，无法重新申请权限
                 }
             }, fail(err) {
                 // 获取蓝牙适配器状态失败
                 console.log('蓝牙无效')
+                wx.hideLoading();
+                wx.showToast({
+                    title: '请检查蓝牙', icon: 'error', duration: 2000
+                })
             }
         });
         // 监听低功耗蓝牙设备的特征值变化
